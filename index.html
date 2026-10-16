@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kailany Janke Web Designer</title>
+<meta name="description" content="Landing pages exclusivas para profissionais liberais: estratégia, copy e design para seus clientes escolherem o seu negócio.">
+<meta name="theme-color" content="#0C1511">
+<meta property="og:title" content="Kailany Janke · Web Designer">
+<meta property="og:description" content="Landing pages exclusivas para profissionais liberais: estratégia, copy e design para seus clientes escolherem o seu negócio.">
+<meta property="og:image" content="img/hero-kailany.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap">
+<style>
+/* Layout: estrutura editorial escura no ritmo da referência (capa com foto à direita fundindo no fundo, texto à esquerda,
+   números com divisórias), seções com rótulo + título grande, brilho de luz que segue o mouse pela página inteira */
+:root{
+  --bg:#0C1511;
+  --bg-2:#111E18;
+  --bg-3:#172820;
+  --line:rgba(241,233,210,.11);
+  --fg:#F1E9D2;
+  --muted:#A7B0A1;
+  --rose:#D6A69C;
+  --gold:#C2A468;
+  --ink-muted:#4B574F;
+  --rose-deep:#9A5A4F;
+  --gold-deep:#86672D;
+  --line-dark:rgba(12,21,17,.16);
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --didone:"Bodoni Moda", "Didot", Georgia, serif;
+  --content:1200px;
+  --gutter:clamp(18px,4vw,40px);
+  --gap:24px;
+  --ease:cubic-bezier(.16,.84,.3,1);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+a{color:inherit}
+img{max-width:100%;display:block}
+/* grade: 1200px de conteúdo em 12 colunas, gap de 24px; numa tela de 1920 sobram 360px de margem de cada lado */
+.wrap{max-width:calc(var(--content) + 2 * var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+.g12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:300}
+h3{font-size:1.28rem;font-weight:500;letter-spacing:-.005em}
+p{margin:0}
+em{font-style:italic;color:var(--rose)}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:.7em}
+.lead{font-size:1.1rem;color:var(--muted);max-width:56ch}
+.muted{color:var(--muted)}
+section{padding-block:clamp(84px,11vw,140px);position:relative}
+.stack{display:flex;flex-direction:column;gap:1.25rem}
+::selection{background:var(--rose);color:var(--bg)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+/* monograma kj: as duas letras na mesma linha de base */
+.kj{font-family:var(--didone);font-weight:500;letter-spacing:-.06em;line-height:1;white-space:nowrap;display:inline-flex;align-items:baseline}
+.kj b{font-weight:500;color:var(--rose)}
+
+/* brilho que segue o mouse */
+.glow{position:fixed;left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;pointer-events:none;z-index:45;opacity:0;transition:opacity .5s;mix-blend-mode:screen;
+  background:radial-gradient(circle,rgba(250,236,210,.5) 0%,rgba(244,224,190,.3) 7%,rgba(230,206,164,.13) 22%,rgba(220,196,150,.05) 40%,rgba(220,196,150,0) 62%)}
+.glow::after{content:"";position:absolute;left:50%;top:50%;width:3px;height:3px;margin:-1.5px 0 0 -1.5px;border-radius:50%;background:rgba(252,242,222,.6);box-shadow:0 0 5px 2px rgba(246,228,196,.3)}
+.glow.on{opacity:1}
+
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--rose);transform-origin:left;transform:scaleX(0);z-index:70;pointer-events:none}
+
+/* ---------- Botões: pílula champanhe com degradê, luz passando e seta delicada ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:20px 36px;border-radius:999px;text-decoration:none;font-family:var(--body);font-weight:600;font-size:.86rem;letter-spacing:.09em;text-transform:uppercase;line-height:1.2;color:#1C1810;width:fit-content;overflow:hidden;isolation:isolate;
+  background:linear-gradient(90deg,#F7F0E1 0%,#ECDDBF 42%,#D2B98C 100%);
+  border:1px solid rgba(255,247,230,.6);
+  box-shadow:0 0 0 1px rgba(194,164,104,.1),0 16px 44px -16px rgba(230,208,166,.6),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(120,92,40,.18);
+  transition:transform .4s var(--ease),box-shadow .4s,filter .3s}
+.btn::before{content:"";position:absolute;top:-30%;bottom:-30%;left:0;width:38%;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.8) 50%,rgba(255,255,255,0) 100%);
+  transform:translateX(-180%) skewX(-20deg);animation:btnshine 4.4s ease-in-out infinite}
+@keyframes btnshine{0%{transform:translateX(-180%) skewX(-20deg)}50%,100%{transform:translateX(400%) skewX(-20deg)}}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.04);box-shadow:0 0 0 1px rgba(194,164,104,.14),0 20px 50px -14px rgba(230,208,166,.8),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(120,92,40,.18)}
+.btn>span{position:relative;z-index:2}
+.btn .ar{position:relative;z-index:2;display:inline-flex;transition:transform .45s var(--ease)}
+.btn .ar svg{width:14px;height:14px}
+.btn:hover .ar{transform:translateX(4px)}
+.link{display:inline-flex;align-items:center;gap:.5em;font-size:.86rem;font-weight:600;text-decoration:none;color:var(--fg);border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s,color .3s}
+.link:hover{color:var(--rose);border-color:var(--rose)}
+
+/* ---------- Cabeçalho ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:12px}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand .kj{font-size:2rem}
+.brand small{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.nav{display:flex;gap:1.8rem;align-items:center}
+.nav a:not(.btn){text-decoration:none;font-size:.88rem;color:var(--muted);position:relative}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--rose);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav a:not(.btn):hover{color:var(--fg)}
+.nav a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{font-size:.78rem}
+@media (max-width:880px){.nav a:not(.btn){display:none}}
+@media (max-width:420px){.brand small{display:none}}
+
+/* ---------- HERO: foto recortada à direita sobre anéis finos, fundo desfocado escuro ---------- */
+.hero{padding-block:clamp(56px,6vw,96px) 0;min-height:max(720px,46.35vw);display:flex;align-items:center;isolation:isolate;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--grain);opacity:.05;mix-blend-mode:overlay;z-index:3}
+.hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(42% 60% at 22% 46%,rgba(12,21,17,.5) 0%,rgba(12,21,17,.22) 55%,transparent 80%),
+  linear-gradient(0deg,var(--bg) 0%,transparent 10%),linear-gradient(180deg,rgba(12,21,17,.35) 0%,transparent 10%)}
+.hero>.wrap{position:relative;z-index:2;width:100%;align-self:stretch;display:flex}
+.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);width:100%}
+.hero-copy{grid-column:1/7;align-self:center;display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:relative;z-index:2;padding-bottom:clamp(70px,7vw,110px)}
+.hero-copy>*{animation:up 1s var(--ease) both}
+.hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}.hero-copy>*:nth-child(4){animation-delay:.24s}.hero-copy>*:nth-child(5){animation-delay:.32s}
+@keyframes up{from{transform:translateY(26px);opacity:0}to{transform:none;opacity:1}}
+.pill{display:inline-flex;align-items:center;gap:10px;width:fit-content;padding:9px 18px 9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(241,233,210,.03);font-size:.84rem;color:var(--fg);line-height:1.3}
+.pill i{width:8px;height:8px;flex:none;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 22%,transparent)}
+.pill.up{text-transform:uppercase;letter-spacing:.12em;font-size:.74rem}
+.hero h1{font-size:clamp(2.5rem,4.6vw,4.1rem);font-weight:300;letter-spacing:-.028em;line-height:1.05}
+.hero h1 .hl,.caps .hl{font-style:italic;white-space:nowrap;padding-right:.08em;color:var(--rose);
+  background:linear-gradient(100deg,var(--rose) 0%,var(--rose) 40%,#FCEFD6 50%,var(--rose) 60%,var(--rose) 100%);background-size:280% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hlshine 5.5s 1.4s ease-in-out infinite}
+@keyframes hlshine{0%{background-position:100% 0}55%,100%{background-position:0% 0}}
+.hero .lead{font-size:1.12rem;max-width:44ch}
+.hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:1.15rem;margin-top:.4rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.5rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tags span{display:inline-flex;align-items:center;gap:1rem}
+.tags span:not(:last-child)::after{content:"✳";color:var(--gold);font-size:.8rem}
+.note{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted);text-decoration:none;transition:color .3s}
+.note i{width:13px;height:13px;border:2px solid var(--rose);border-radius:50%}
+.note:hover{color:var(--fg)}
+
+.hero-copy,.hero-art{grid-row:1}
+.hero-art{grid-column:7/13;position:relative;align-self:end;height:clamp(560px,46vw,740px)}
+.hero-art .rings{position:absolute;left:58%;top:40%;width:0;height:0}
+.hero-art .rings span{position:absolute;border:1px solid rgba(241,233,210,.13);border-radius:50%;transform:translate(-50%,-50%)}
+.hero-art .rings span:nth-child(1){width:300px;height:300px}
+.hero-art .rings span:nth-child(2){width:460px;height:460px;border-color:rgba(241,233,210,.10)}
+.hero-art .rings span:nth-child(3){width:620px;height:620px;border-color:rgba(241,233,210,.08)}
+.hero-art .rings span:nth-child(4){width:780px;height:780px;border-color:rgba(241,233,210,.06)}
+.hero-art .cut{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;transform:translateX(-46%);
+  -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 98%);mask-image:linear-gradient(180deg,#000 70%,transparent 98%);
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.45)) saturate(.9);animation:person 1.4s .2s var(--ease) both}
+@keyframes person{from{transform:translateX(-46%) translateY(30px);opacity:0}to{transform:translateX(-46%);opacity:1}}
+
+.seal{position:absolute;width:118px;height:118px;z-index:4}
+.seal>svg{width:100%;height:100%;animation:spin 26s linear infinite}
+.seal text{font-family:var(--body);font-size:7.6px;text-transform:uppercase;fill:var(--fg);font-weight:600}
+.seal .core{position:absolute;inset:25px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center}
+.seal .core .kj{font-size:2rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-art .seal{left:5%;top:46%;width:132px;height:132px;opacity:.5;z-index:1}
+.hero-art .seal text{fill:var(--muted)}
+.hero-art .seal .core{inset:28px;background:transparent;border-color:rgba(241,233,210,.22)}
+.hero-art .seal .core .kj,.hero-art .seal .core .kj b{color:var(--muted)}
+
+.scroll-ind{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:46px;height:46px;border:1px solid rgba(241,233,210,.35);border-radius:50%;display:grid;place-items:center;z-index:4;color:var(--fg)}
+.scroll-ind svg{width:14px;height:22px}
+.scroll-ind .dot{animation:dot 1.8s ease-in-out infinite}
+@keyframes dot{0%{transform:translateY(-2px);opacity:0}25%{opacity:1}75%{transform:translateY(2px);opacity:1}100%{transform:translateY(4px);opacity:0}}
+
+/* divisória delicada entre a capa e o resto */
+.divider{display:flex;align-items:center;gap:16px;height:1px;position:relative;z-index:2}
+.divider span{flex:1;height:1px;background:linear-gradient(90deg,rgba(194,164,104,0),rgba(194,164,104,.55))}
+.divider span:last-child{background:linear-gradient(90deg,rgba(194,164,104,.55),rgba(194,164,104,0))}
+.divider i{width:7px;height:7px;flex:none;transform:rotate(45deg);border:1px solid var(--gold);background:var(--bg)}
+
+@media (max-width:900px){
+  .hero{display:block;min-height:0;padding-top:0}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy,.hero-art{grid-row:auto}
+  .hero-art{grid-column:1;order:-1;height:min(118vw,520px);margin-bottom:-12px}
+  .hero-art .rings{left:50%;top:42%}
+  .hero-art .rings span:nth-child(1){width:220px;height:220px}.hero-art .rings span:nth-child(2){width:330px;height:330px}.hero-art .rings span:nth-child(3){width:440px;height:440px}.hero-art .rings span:nth-child(4){display:none}
+  .hero-art .cut{transform:translateX(-50%)}
+  @keyframes person{from{transform:translateX(-50%) translateY(30px);opacity:0}to{transform:translateX(-50%);opacity:1}}
+  .hero-art .seal{left:0;top:18%;width:92px;height:92px}.hero-art .seal .core{inset:20px}.hero-art .seal .core .kj{font-size:1.5rem}
+  .hero-bg{position:relative;inset:auto;height:min(118vw,540px);z-index:0}
+  .hero-bg img{object-position:64% center}
+  .hero-bg::after{background:linear-gradient(0deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 40%,transparent) 22%,transparent 45%)}
+  .hero>.wrap{margin-top:-70px}
+  .hero-copy{grid-column:1;padding-bottom:56px}
+  .scroll-ind{display:none}
+}
+
+
+.sol-head>:first-child{grid-column:1/8}.sol-head>:last-child{grid-column:8/13}
+.incl-head>:first-child{grid-column:1/7}.incl-head>:last-child{grid-column:8/13}
+.dep-head>:first-child{grid-column:1/9}
+@media (max-width:900px){
+  .ident>.wrap>*,.sol-head>*,.incl-head>*,.proc>.wrap>*,.about>.wrap>*,.dep-head>*,.faq>.wrap>*{grid-column:1/-1!important}
+}
+
+/* ---------- Desfoque de fundo ao longo da página ---------- */
+main>section:not(.hero){isolation:isolate;overflow:clip}
+.orb{position:absolute;z-index:-1;width:clamp(380px,38vw,720px);aspect-ratio:1;border-radius:50%;pointer-events:none;filter:blur(130px);opacity:.85;animation:drift 34s ease-in-out infinite alternate}
+.orb.sm{width:clamp(260px,24vw,440px);opacity:.7;animation-duration:40s}
+/* um só tom, apenas um ou dois degraus mais claro que o fundo verde */
+.o-gold,.o-rose{background:#1A2C23}.o-green{background:#1E3228}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.08)}100%{transform:translate(-30px,25px) scale(.96)}}
+.card,.incl-item,.step,.win,.slide{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+
+/* ---------- Logo (monograma kj vetorial) ---------- */
+.kjm{display:inline-flex;align-items:center;justify-content:center;color:#F3EBDD;line-height:0;flex:none}
+.kjm svg{height:1em;width:auto;display:block}
+.brand .kjm{font-size:44px}
+.seal .core .kjm{font-size:52%}
+.mosaic .seal .core .kjm{font-size:36px}
+.collage .name .kjm{width:36px;height:36px;border-radius:50%;background:var(--bg-3);border:1px solid var(--line);font-size:26px}
+footer .kjm{font-size:38px}
+
+
+/* ---------- Revelações no scroll ---------- */
+.js .rv{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-img{clip-path:inset(16% 0 16% 0);transition:clip-path 1.4s var(--ease);transition-delay:var(--d,0s)}
+.js .rv-img img{transform:scale(1.16);transition:transform 1.8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv-img.in{clip-path:inset(0 0 0 0)}
+.js .rv-img.in img{transform:scale(1)}
+.js .rv-line{transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease)}
+.js .rv-line.in{transform:scaleX(1)}
+
+/* ---------- Identificação ---------- */
+.ident>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:48px;align-items:start}
+.ident>.wrap>:first-child{grid-column:1/6}.ident>.wrap>:last-child{grid-column:7/13}
+.ident .body{display:flex;flex-direction:column;gap:1.1rem;color:var(--muted)}
+.pull{font-family:var(--display);font-size:clamp(1.3rem,2.3vw,1.75rem);line-height:1.32;font-weight:300;border-left:1px solid var(--rose);padding-left:1.2rem}
+.card{background:color-mix(in srgb,var(--bg-2) 72%,transparent);border:1px solid var(--line);border-radius:12px}
+.layers{list-style:none;margin:1.8rem 0 0;padding:0;overflow:hidden}
+.layers .lh{display:flex;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(--line);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.layers li.it{display:flex;gap:14px;align-items:flex-start;padding:15px 18px;border-bottom:1px solid var(--line);transition:background .35s,padding .45s var(--ease)}
+.layers li.it:hover{background:color-mix(in srgb,var(--rose) 9%,transparent);padding-left:24px}
+.layers li.it:last-child{border-bottom:0}
+.layers li.it svg{width:15px;height:15px;flex:none;margin-top:5px;stroke:var(--rose);fill:none;stroke-width:1.6}
+.ident-end{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.2rem}
+.ident-end p{font-family:var(--display);font-size:1.25rem;font-weight:300;line-height:1.4}
+@media (max-width:880px){.ident>.wrap{grid-template-columns:1fr}}
+
+/* ---------- Solução ---------- */
+.sol{background:var(--bg-2);border-block:1px solid var(--line)}
+.sol-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:30px;align-items:end;margin-bottom:clamp(50px,6vw,80px)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);position:relative}
+.pillars .bar{position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--rose)}
+.pillar{padding:38px 30px 10px 0;display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.pillar + .pillar{padding-left:30px;border-left:1px solid var(--line)}
+.pillar .n{font-family:var(--didone);font-size:4.2rem;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gold);transition:color .5s}
+.pillar:hover .n{color:var(--gold)}
+.pillar p{color:var(--muted)}
+.sol-close{margin-top:clamp(56px,7vw,84px);font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;max-width:28ch;line-height:1.25}
+@media (max-width:880px){.sol-head{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}.pillar,.pillar + .pillar{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* ---------- Incluso ---------- */
+.incl-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:30px;align-items:end}
+.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:clamp(44px,5vw,64px)}
+.incl-item{--x:50%;--y:50%;position:relative;border:1px solid var(--line);border-radius:6px;background:radial-gradient(340px circle at var(--x) var(--y),color-mix(in srgb,var(--rose) 11%,transparent),transparent 60%),color-mix(in srgb,var(--bg-2) 70%,transparent);padding:32px 28px;display:flex;flex-direction:column;gap:.75rem;min-width:0;transition:border-color .4s,transform .6s var(--ease)}
+.incl-item:hover{border-color:color-mix(in srgb,var(--rose) 50%,transparent);transform:translateY(-6px)}
+.incl-item .ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .6s var(--ease),border-color .3s}
+.incl-item:hover .ic{transform:rotate(-14deg) scale(1.08);border-color:var(--gold)}
+.incl-item svg{width:21px;height:21px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.incl-item p{color:var(--muted);font-size:.96rem}
+.incl-foot{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center;margin-top:clamp(44px,5vw,60px);padding-top:clamp(30px,4vw,44px);border-top:1px solid var(--line)}
+.incl-foot p{font-family:var(--display);font-size:1.35rem;font-weight:300;max-width:44ch;line-height:1.4}
+@media (max-width:900px){.incl-head{grid-template-columns:1fr}.incl-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.incl-grid{grid-template-columns:1fr}}
+
+/* ---------- Portfólio ---------- */
+.port{background:var(--bg-2);border-block:1px solid var(--line)}
+.port-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:clamp(44px,5vw,64px)}
+.port-head .lead{max-width:46ch}
+.port-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:48px var(--gap)}
+.proj{grid-column:span 6;display:flex;flex-direction:column;gap:14px;text-decoration:none;min-width:0}
+.win{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;aspect-ratio:16/11;background:var(--bg-3);transition:border-color .4s,transform .7s var(--ease)}
+.proj:hover .win{border-color:var(--rose);transform:translateY(-8px)}
+.win .bar{height:30px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding-inline:12px;position:relative;z-index:2;background:var(--bg-3);color:var(--fg)}
+.win .bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.win .bar span{margin-left:10px;font-size:.68rem;color:var(--muted);letter-spacing:.04em}
+.win .page{position:absolute;inset:30px 0 0;overflow:hidden;container-type:size;background:#fff}
+.win .page img{width:100%;height:auto;max-width:none;transform:translateY(0);transition:transform 1.4s var(--ease)}
+.proj:hover .win .page img{transform:translateY(calc(-100% + 100cqh));transition:transform 10s cubic-bezier(.45,.05,.55,.95)}
+.proj:nth-child(1):hover .win .page img{transition-duration:16s}
+.proj .meta{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.proj .meta h3{font-size:1.2rem}
+.proj .meta span{font-size:.74rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.proj .meta .go{color:var(--fg);font-size:.8rem;letter-spacing:0;text-transform:none;font-weight:600;transition:color .3s}
+.proj:hover .meta .go{color:var(--rose)}
+.port-cta{margin-top:clamp(44px,5vw,60px);display:flex;justify-content:center}
+@media (max-width:760px){.proj,.proj:nth-child(n){grid-column:span 12}}
+
+/* ---------- Processo ---------- */
+.proc>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:48px}
+.proc>.wrap>:first-child{grid-column:1/6}.proc>.wrap>:last-child{grid-column:7/13}
+.proc-side{display:flex;flex-direction:column;gap:1.4rem;position:sticky;top:100px;align-self:start}
+.proc-facts{display:flex;flex-wrap:wrap;gap:16px 0;list-style:none;margin:.8rem 0 0;padding:1.4rem 0 0;border-top:1px solid var(--line)}
+.proc-facts li{display:flex;flex-direction:column;gap:2px;padding-right:26px;margin-right:26px;border-right:1px solid var(--line)}
+.proc-facts li:last-child{border-right:0;margin-right:0;padding-right:0}
+.proc-facts b{font-family:var(--display);font-weight:300;font-size:2.4rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.proc-facts span{font-size:.8rem;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.step{position:sticky;top:calc(96px + var(--i) * 16px);display:grid;grid-template-columns:70px 1fr;gap:18px;padding:30px 30px 32px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--bg-3) 82%,transparent);box-shadow:0 -14px 40px rgba(0,0,0,.35)}
+.step .n{font-family:var(--didone);font-size:2.8rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.step h3{margin-bottom:.4rem}
+.step p{color:var(--muted)}
+.step .ok{display:inline-flex;gap:.4em;align-items:center;margin-top:.8rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);border:1px solid color-mix(in srgb,var(--rose) 45%,transparent);padding:4px 11px;border-radius:999px;font-weight:600}
+.proc-close{font-family:var(--display);font-size:1.3rem;font-weight:300;line-height:1.4;margin-block:.6rem .2rem;max-width:30ch}
+@media (max-width:880px){.proc>.wrap{grid-template-columns:1fr}.proc-side{position:static}.step{position:relative;top:auto;grid-template-columns:52px 1fr;padding:24px 22px}.step .n{font-size:2.2rem}}
+
+/* ---------- Sobre ---------- */
+.about{background:var(--bg-2);border-block:1px solid var(--line)}
+.about>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:56px;align-items:center}
+.about>.wrap>:first-child{grid-column:1/7}.about>.wrap>:last-child{grid-column:8/13}
+.collage{position:relative;max-width:500px;padding:22px 0 64px 22px}
+.collage .arc{position:absolute;left:0;top:0;width:76%;aspect-ratio:3/4.1;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:999px 999px 10px 10px}
+.collage .main{position:relative;width:76%;aspect-ratio:3/4.1;border-radius:999px 999px 10px 10px;overflow:hidden}
+.collage .main img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.collage .circle{position:absolute;right:0;bottom:12px;width:44%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--bg-2);z-index:3}
+.collage .circle img{width:100%;height:100%;object-fit:cover;object-position:64% 40%;transform:scale(1.35);transform-origin:64% 40%}
+.collage .name{position:absolute;left:0;bottom:22px;z-index:3;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;font-size:.74rem;line-height:1.25}
+.collage .name .kj{font-size:1.25rem;width:34px;height:34px;border-radius:50%;background:var(--fg);color:var(--bg);justify-content:center;align-items:center}
+.collage .name small{display:block;color:var(--muted);font-size:.66rem}
+.about-body{display:flex;flex-direction:column;gap:1.1rem;color:var(--muted)}
+.about-body h2{color:var(--fg);margin-bottom:.3rem}
+.about-body strong{color:var(--fg);font-weight:500}
+@media (max-width:880px){.about>.wrap{grid-template-columns:1fr}}
+@media (max-width:480px){.collage{padding:16px 0 54px 16px}}
+
+/* ---------- Depoimentos ---------- */
+.dep-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:30px;align-items:end;margin-bottom:clamp(44px,5vw,60px)}
+.slider{display:grid;grid-auto-flow:column;grid-auto-columns:min(calc((min(100vw - 2 * var(--gutter), var(--content)) - 2 * var(--gap)) / 3),84vw);gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none;
+  margin-inline:calc(-1 * clamp(18px,4vw,40px));padding-inline:clamp(18px,4vw,40px);scroll-padding-inline:clamp(18px,4vw,40px)}
+.slider::-webkit-scrollbar{display:none}
+.slide{scroll-snap-align:start;margin:0;height:340px;border-radius:16px;border:1px solid var(--line);background:#0B1014;display:flex;flex-direction:column;overflow:hidden;transition:border-color .4s,transform .6s var(--ease)}
+.slide:hover{border-color:color-mix(in srgb,var(--rose) 45%,transparent);transform:translateY(-4px)}
+.slide .sh-x{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.slide .sh b{font-family:var(--display);font-weight:400;font-size:.95rem;letter-spacing:0;color:var(--gold);text-transform:none;font-variant-numeric:tabular-nums}
+.slide .im{flex:1;min-height:0;position:relative}
+.slide img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);max-width:none;object-fit:contain}
+.slider-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:26px}
+.slider-nav .count{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.1em}
+.slider-nav .track{flex:1;height:1px;background:var(--line);position:relative;max-width:420px}
+.slider-nav .track i{position:absolute;left:0;top:-1px;height:3px;background:var(--rose);border-radius:2px;width:20%;transition:transform .4s var(--ease)}
+.slider-nav .arrows{display:flex;gap:10px}
+.slider-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:background .3s,color .3s,border-color .3s}
+.slider-nav button:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.slider-nav button svg{width:18px;height:18px}
+@media (max-width:880px){.dep-head{grid-template-columns:1fr}.slide{height:300px}.slider{grid-auto-columns:min(420px,84vw)}}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--bg-2);border-block:1px solid var(--line)}
+.faq>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:40px}
+.faq>.wrap>:first-child{grid-column:1/5}.faq>.wrap>:last-child{grid-column:6/13}
+.faq-list{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1.5rem;align-items:center;padding:24px 0;font-family:var(--display);font-size:1.22rem;transition:color .3s}
+.faq summary:hover{color:var(--rose)}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{width:30px;height:30px;flex:none;border:1px solid var(--line);border-radius:50%;position:relative;transition:transform .5s var(--ease),border-color .3s,background .3s}
+.faq .pm::before,.faq .pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:var(--fg);transform:translate(-50%,-50%)}
+.faq .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] .pm{transform:rotate(45deg);border-color:var(--rose);background:var(--rose)}
+.faq details[open] .pm::before,.faq details[open] .pm::after{background:var(--bg)}
+.faq details p{color:var(--muted);padding:0 3rem 26px 0;max-width:62ch}
+.faq details[open] p{animation:up .6s var(--ease)}
+@media (max-width:880px){.faq>.wrap{grid-template-columns:1fr}.faq details p{padding-right:0}}
+
+/* ---------- CTA final: mosaico de fotos com selo no centro + texto ---------- */
+.final{padding-block:clamp(90px,10vw,150px);overflow:hidden;isolation:isolate}
+.final-ghost{position:absolute;left:0;top:0;bottom:0;width:min(32vw,560px);z-index:-1;opacity:.12;
+  -webkit-mask-image:linear-gradient(90deg,#000 15%,transparent 100%);mask-image:linear-gradient(90deg,#000 15%,transparent 100%)}
+.final-ghost img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:grayscale(1) contrast(1.05)}
+.final>.wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:56px;align-items:center}
+.mosaic{grid-column:1/7;position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mosaic .m{position:relative;border-radius:18px;overflow:hidden;background:var(--bg-3)}
+.mosaic .m img{width:100%;height:100%;object-fit:cover}
+.mosaic .m1{grid-column:1/-1;aspect-ratio:16/9}
+.mosaic .m1 img{object-position:center 62%}
+.mosaic .m2,.mosaic .m3{aspect-ratio:4/4.6}
+.mosaic .m2 img{object-position:center 28%}
+.mosaic .m3 img{object-position:40% 55%}
+.mosaic .seal{left:50%;top:49.4%;width:100px;height:100px;transform:translate(-50%,-50%);z-index:3}
+.mosaic .seal::before{content:"";position:absolute;inset:-9px;border-radius:50%;background:var(--bg);box-shadow:0 12px 34px rgba(0,0,0,.55);border:1px solid var(--line)}
+.mosaic .seal>svg{position:relative}
+.seal .core{z-index:1}
+.mosaic .seal .core{inset:23px}
+.mosaic .seal .core .kj{font-size:2.1rem}
+.final-txt{grid-column:8/13;display:flex;flex-direction:column;align-items:flex-start;gap:1.3rem}
+.caps{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.01em;line-height:1.08;font-size:clamp(2.3rem,3.8vw,3.6rem);font-variation-settings:"opsz" 144}
+.rule{display:block;width:100%;height:1px;background:var(--line)}
+.final-txt p{color:var(--muted);max-width:46ch}
+.final-txt p.big{font-family:var(--display);font-size:1.3rem;font-weight:300;line-height:1.4;color:var(--fg)}
+.final-txt .btn{margin-top:.6rem}
+@media (max-width:900px){
+  .mosaic,.final-txt{grid-column:1/-1}
+  .mosaic .seal::before{inset:-7px}
+  .mosaic .seal{width:80px;height:80px}.mosaic .seal .core{inset:19px}.mosaic .seal .core .kjm{font-size:29px}.mosaic .seal .core .kj{font-size:1.6rem}
+  .final-ghost{display:none}
+}
+
+footer{border-top:1px solid var(--line);padding-block:36px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;font-size:.85rem;color:var(--muted)}
+footer .kj{font-size:1.6rem;color:var(--fg)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--rose)}
+
+.float-wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#F7F0E1,#ECDDBF 45%,#D2B98C);color:#1C1810;border:1px solid rgba(255,240,205,.5);display:none;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.float-wa svg{width:26px;height:26px}
+@media (max-width:760px){.float-wa{display:flex}}
+
+/* ---------- Fundos em degradê: do verde escuro para um ou dois tons mais claros ---------- */
+.hero{background:linear-gradient(180deg,var(--bg) 0%,#0F1B15 100%)}
+.ident{background:linear-gradient(180deg,var(--bg) 0%,#101C16 100%)}
+.sol{background:linear-gradient(165deg,#16271E 0%,#111E18 45%,var(--bg) 100%)}
+.incl{background:radial-gradient(110% 75% at 85% 0%,#15251D 0%,transparent 62%),linear-gradient(180deg,var(--bg) 0%,#0E1913 100%)}
+.port{background:linear-gradient(195deg,#17281F 0%,#111E18 50%,var(--bg) 100%)}
+.proc{background:radial-gradient(85% 65% at 0% 25%,#15241C 0%,transparent 65%),var(--bg)}
+.about{background:linear-gradient(160deg,var(--bg) 0%,#122019 55%,#18291F 100%)}
+.dep{background:radial-gradient(90% 70% at 50% 0%,#14231B 0%,transparent 70%),var(--bg)}
+.faq{background:linear-gradient(180deg,#132119 0%,var(--bg) 100%)}
+.final{background:radial-gradient(85% 80% at 72% 50%,#16261E 0%,transparent 66%),var(--bg)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .rv-img,.js .rv-img img,.js .rv-line{opacity:1;transform:none;clip-path:none}
+}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="kj-logo" viewBox="4 4 74 90"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M16.3206 11.65L16.2347 12.1376L23.9341 13.4952L14.3855 67.6477L5.40288 66.0638L5.31237 66.5771L35.0834 71.8266L35.1739 71.3133L26.1913 69.7294L29.178 52.7907L32.121 51.9336L32.8493 51.7048L42.6042 69.395L43.5032 69.4741L44.4845 69.6868L45.4454 70.0151L46.3452 70.4648L47.1862 71.0233L47.9599 71.6625L48.6364 72.4036L49.22 73.221L49.7402 74.1728L50.8264 74.3908L51.9051 74.5016L52.9505 74.5007L53.9582 74.4138L55.3198 74.0452L56.5773 73.3672L57.649 72.3918L58.4829 71.1893L57.2798 71.5593L56.1528 71.5723L55.0869 71.2388L54.1139 70.6041L53.8633 70.3747L44.2761 47.8317L47.2666 46.705L50.8963 45.2545L53.7652 44.0668L56.5896 42.8315L58.3279 42.053L57.6484 41.404L54.427 42.4899L51.204 43.5093L48.0203 44.4563L45.2087 45.244L42.071 46.08L38.6118 46.9387L34.8695 47.8269L30.8464 48.7318L29.8568 48.941L37.3237 6.59427L36.7381 7.58921L36.0589 8.51472L35.2989 9.37306L34.4755 10.1408L33.5607 10.8263L32.5931 11.4364L31.5621 11.9558L30.4699 12.3719L29.3378 12.7147L28.1595 12.9436L26.9586 13.0759L25.7094 13.107L24.4526 13.0309L16.3252 11.6243L16.3206 11.65Z"/><path fill="currentColor" d="M64.488 43.1387L72.7007 44.5868L66.9535 77.181C65.0981 87.7035 58.2901 91.7956 49.8208 90.3022C45.7144 89.5782 42.6948 87.1934 41.5622 84.612L46.4081 84.1433C47.6765 85.9547 49.3825 86.7848 51.2243 86.8449C55.2097 86.7538 57.3379 83.6889 58.2883 78.2993L64.488 43.1387Z"/><path fill="currentColor" d="M40.9569 85.0348C45.0674 85.7596 48.9872 83.0149 49.712 78.9044C50.4368 74.7939 47.6921 70.8741 43.5816 70.1493C39.4711 69.4245 35.5513 72.1692 34.8265 76.2797C34.1017 80.3902 36.8463 84.31 40.9569 85.0348Z"/><path fill="currentColor" d="M57.6486 41.4043L76.8971 44.7983L76.8066 45.3116L58.0714 42.0081L57.6486 41.4043Z"/><path style="fill:var(--kj-dot,#C9A04A)" d="M69.5899 38.2171C71.716 38.592 73.7435 37.1723 74.1184 35.0462C74.4933 32.9201 73.0736 30.8926 70.9475 30.5177C68.8214 30.1428 66.7939 31.5624 66.419 33.6886C66.0441 35.8147 67.4638 37.8422 69.5899 38.2171Z"/></symbol>
+</defs></svg>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Kailany Janke, início">
+      <span class="kjm"><svg viewBox="4 4 74 90" aria-hidden="true"><use href="#kj-logo"/></svg></span>
+      <small>Kailany Janke<br>Web Designer</small>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn js-wa" href="#contato"><span>Solicitar orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- 01 PRIMEIRA DOBRA -->
+<section class="hero" id="hero">
+  <div class="hero-bg"><img src="img/hero-kailany.jpg" alt="Kailany Janke sentada com o notebook no colo, sorrindo">
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Kailany Janke · Web Designer</span>
+        <h1>Dê aos seus clientes <span class="hl">todos os motivos</span> para escolher o seu negócio.</h1>
+        <p class="lead">Landing pages desenvolvidas para valorizar seus diferenciais, despertar o interesse do público certo e conduzir cada visitante até o próximo passo.</p>
+        <div class="hero-cta">
+          <a class="btn js-wa" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+          <a class="link" href="#portfolio">Ver projetos ↓</a>
+          <div class="tags"><span>Landing page</span><span>Copy estratégica</span><span>Social media</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-ind" href="#caminho" aria-label="Rolar para a próxima seção"><svg viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="12" height="20" rx="6"/><g class="dot"><path d="M7 5.5v8"/><path d="M4.6 11.1 7 13.5l2.4-2.4"/></g></svg></a>
+</section>
+<div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+
+<!-- 02 IDENTIFICAÇÃO -->
+<section class="ident" id="caminho">
+  <span class="orb o-gold" style="right:-8%;top:8%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="stack">
+      <span class="eyebrow rv">O caminho até o contato</span>
+      <h2 class="rv" style="--d:.08s">Você investe para atrair clientes. <em>Mas o que acontece depois que eles chegam?</em></h2>
+      <p class="muted rv" style="--d:.16s">Quem chega ao seu Instagram precisa garimpar posts e destaques para entender como você atende. E nem todo mundo tem paciência para isso.</p>
+      <p class="pull rv" style="--d:.24s;margin-top:.6rem">O problema não é falta de interesse. É o caminho até falar com você.</p>
+    </div>
+    <div>
+      <p class="muted rv">Uma landing page organiza esse caminho em um só lugar:</p>
+      <ul class="layers card rv" style="--d:.1s">
+        <li class="lh"><span>Sua landing page</span><span>5 camadas</span></li>
+        <li class="it"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>O que você oferece e para quem.</li>
+        <li class="it"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Os diferenciais do seu atendimento.</li>
+        <li class="it"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Respostas para as principais dúvidas.</li>
+        <li class="it"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Provas de que seu trabalho merece confiança.</li>
+        <li class="it"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Um caminho direto até o seu WhatsApp.</li>
+      </ul>
+      <div class="ident-end rv" style="--d:.2s">
+        <p>Seu Instagram desperta o interesse. <em>Sua landing page transforma esse interesse em decisão.</em></p>
+        <a class="btn js-wa" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SOLUÇÃO -->
+<section class="sol">
+  <span class="orb o-rose" style="left:-10%;top:30%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sol-head">
+      <div class="stack">
+        <span class="eyebrow rv">Estratégia antes da estética</span>
+        <h2 class="rv" style="--d:.08s">Uma página bonita chama atenção. <em>Uma página estratégica dá motivos para contratar.</em></h2>
+      </div>
+      <div class="stack muted rv" style="--d:.16s">
+        <p>Não basta escolher boas cores, colocar algumas fotos e adicionar um botão de WhatsApp. Uma landing page precisa responder às perguntas certas, na ordem certa.</p>
+        <p>Quem chega até ela precisa entender o valor do seu serviço, reconhecer seus diferenciais e saber exatamente qual é o próximo passo. Por isso, meu trabalho une três elementos:</p>
+      </div>
+    </div>
+    <div class="pillars">
+      <span class="bar rv-line"></span>
+      <div class="pillar rv" style="--d:.1s"><span class="n">01</span><h3>Estratégia</h3><p>Entendo seu negócio, seu público e o que precisa ser comunicado para tornar sua oferta mais clara e convincente.</p></div>
+      <div class="pillar rv" style="--d:.22s"><span class="n">02</span><h3>Comunicação persuasiva</h3><p>Escrevo os textos para que seus clientes compreendam o que você oferece, por que isso importa e como contratar.</p></div>
+      <div class="pillar rv" style="--d:.34s"><span class="n">03</span><h3>Design e experiência</h3><p>Desenvolvo uma página exclusiva, organizada e adaptada ao celular, que representa a identidade do seu negócio e facilita o contato.</p></div>
+    </div>
+    <p class="sol-close rv">O objetivo não é apenas fazer alguém admirar sua página. É ajudar essa pessoa a entender <em>por que deveria escolher você.</em></p>
+  </div>
+</section>
+
+<!-- 04 O QUE ESTÁ INCLUSO -->
+<section class="incl">
+  <span class="orb o-green" style="right:-6%;top:22%" aria-hidden="true"></span><span class="orb o-gold sm" style="left:6%;bottom:4%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="incl-head">
+      <div class="stack">
+        <span class="eyebrow rv">O que está incluso</span>
+        <h2 class="rv" style="--d:.08s">Você cuida dos seus clientes. <em>Eu cuido de como seu trabalho é apresentado.</em></h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Você não precisa entender de design, programação ou copywriting para ter uma landing page profissional. Eu cuido da criação, da organização das informações e dos detalhes técnicos.</p>
+    </div>
+    <div class="incl-grid">
+      <div class="incl-item rv"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></span><h3>Textos estratégicos</h3><p>Nada de receber uma página vazia e precisar descobrir o que escrever. Eu desenvolvo a comunicação com base nas informações do seu negócio.</p></div>
+      <div class="incl-item rv" style="--d:.1s"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 9v12"/></svg></span><h3>Design exclusivo</h3><p>Uma identidade visual pensada para representar seu posicionamento, sem depender de modelos genéricos.</p></div>
+      <div class="incl-item rv" style="--d:.2s"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="1"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg></span><h3>Imagens profissionais</h3><p>Se você não tiver um ensaio, podemos desenvolver imagens com inteligência artificial a partir das suas fotos, mediante sua aprovação.</p></div>
+      <div class="incl-item rv" style="--d:.05s"><span class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><h3>Página adaptada para celular</h3><p>Seu cliente poderá navegar, conhecer seus serviços e entrar em contato de forma prática pelo dispositivo que estiver usando.</p></div>
+      <div class="incl-item rv" style="--d:.15s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg></span><h3>Integração com WhatsApp</h3><p>Botões posicionados estrategicamente para facilitar o contato e reduzir etapas desnecessárias.</p></div>
+      <div class="incl-item rv" style="--d:.25s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><h3>Publicação e suporte</h3><p>Cuido da implementação, dos testes e da publicação, além do suporte pós-entrega conforme o combinado no projeto.</p></div>
+    </div>
+    <div class="incl-foot rv">
+      <p>Você me conta como funciona seu trabalho. Eu organizo tudo em uma página preparada para apresentá-lo com <em>clareza e profissionalismo.</em></p>
+      <a class="btn js-wa" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PORTFÓLIO -->
+<section class="port" id="portfolio">
+  <span class="orb o-rose" style="right:-8%;top:-4%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="port-head">
+      <div class="stack" style="max-width:640px">
+        <span class="eyebrow rv">Portfólio</span>
+        <h2 class="rv" style="--d:.08s">Seu cliente precisa confiar no que vê. <em>Você também.</em></h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Antes de contratar, é natural querer conhecer a qualidade do trabalho que será entregue. Aqui estão alguns projetos que desenvolvi, cada um com uma identidade própria, respeitando o serviço oferecido e o público que precisava alcançar.</p>
+    </div>
+    <div class="port-grid">
+      <a class="proj rv" href="https://gabriellelafin.com.br/" target="_blank" rel="noopener">
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>gabriellelafin.com.br</span></div><div class="page"><img src="img/site-lafin.jpg" alt="Site de Gabrielle Lafin"></div></div>
+        <div class="meta"><h3>Gabrielle Lafin</h3><span>Comunicação em espanhol</span><span class="go">Ver site ↗</span></div>
+      </a>
+      <a class="proj rv" style="--d:.12s" href="https://gabrieladamiani.com.br/" target="_blank" rel="noopener">
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>gabrieladamiani.com.br</span></div><div class="page"><img src="img/site-damiani.jpg" alt="Site de Gabriela Damiani"></div></div>
+        <div class="meta"><h3>Gabriela Damiani</h3><span>Advocacia</span><span class="go">Ver site ↗</span></div>
+      </a>
+      <a class="proj rv" href="https://www.drapaolavoitovicz.com.br/" target="_blank" rel="noopener">
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>drapaolavoitovicz.com.br</span></div><div class="page"><img src="img/site-paola.jpg" alt="Site da Dra. Paola Voitovicz"></div></div>
+        <div class="meta"><h3>Dra. Paola Voitovicz</h3><span>Saúde da mulher</span><span class="go">Ver site ↗</span></div>
+      </a>
+      <a class="proj rv" style="--d:.12s" href="https://drclaudiohenrique.com.br/" target="_blank" rel="noopener">
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>drclaudiohenrique.com.br</span></div><div class="page"><img src="img/site-claudio.jpg" alt="Site do Dr. Cláudio Henrique"></div></div>
+        <div class="meta"><h3>Dr. Cláudio Henrique</h3><span>Ortopedia</span><span class="go">Ver site ↗</span></div>
+      </a>
+    </div>
+    <div class="port-cta rv"><a class="btn js-wa" href="#contato"><span>Quero uma página assim</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a></div>
+  </div>
+</section>
+
+<!-- 06 COMO FUNCIONA -->
+<section class="proc" id="como-funciona">
+  <span class="orb o-gold" style="left:-12%;top:18%" aria-hidden="true"></span><span class="orb o-green sm" style="right:0;bottom:6%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="proc-side">
+      <span class="eyebrow rv">Como funciona</span>
+      <h2 class="rv" style="--d:.08s">Da primeira conversa à sua página publicada. <em>Você acompanha cada etapa.</em></h2>
+      <p class="muted rv" style="--d:.16s">Não precisa ter todos os textos, fotos ou detalhes definidos antes de me procurar. Meu processo foi organizado para que você saiba o que está sendo feito e possa aprovar as etapas importantes.</p>
+      <ul class="proc-facts rv" style="--d:.2s"><li><b>5</b><span>etapas</span></li><li><b>2</b><span>aprovações suas</span></li><li><b>1</b><span>pessoa cuidando de tudo</span></li></ul>
+      <p class="proc-close rv" style="--d:.26s">Você participa das decisões, mas não precisa assumir o trabalho técnico. <em>Essa parte fica comigo.</em></p>
+      <a class="btn js-wa rv" style="--d:.32s" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div>
+      <ol class="steps">
+        <li class="step" style="--i:0"><span class="n">01</span><div><h3>Primeira conversa</h3><p>Entendo seu serviço, seus objetivos e o que você precisa. A partir disso, preparo uma proposta personalizada.</p></div></li>
+        <li class="step" style="--i:1"><span class="n">02</span><div><h3>Briefing estratégico</h3><p>Você responde a algumas perguntas sobre seu negócio, seus clientes e seus diferenciais. Essas informações orientam todo o projeto.</p></div></li>
+        <li class="step" style="--i:2"><span class="n">03</span><div><h3>Criação dos textos</h3><p>Escrevo a comunicação da sua landing page e apresento para aprovação antes de seguir.</p><span class="ok">✓ Sua aprovação</span></div></li>
+        <li class="step" style="--i:3"><span class="n">04</span><div><h3>Design personalizado</h3><p>Desenvolvo a parte visual, respeitando sua identidade e a experiência que você deseja proporcionar aos clientes.</p><span class="ok">✓ Sua aprovação</span></div></li>
+        <li class="step" style="--i:4"><span class="n">05</span><div><h3>Desenvolvimento e publicação</h3><p>Construo a página, faço os testes necessários, configuro os botões de contato e coloco tudo no ar.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SOBRE -->
+<section class="about" id="sobre">
+  <span class="orb o-rose" style="right:-6%;top:14%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="collage">
+      <span class="arc rv" aria-hidden="true"></span>
+      <div class="main rv-img"><img src="img/sofa.jpg" alt="Retrato de Kailany Janke"></div>
+      <div class="circle rv-img" style="--d:.35s"><img src="img/caneca.jpg" alt="Kailany tomando café no escritório"></div>
+      <div class="name rv" style="--d:.55s"><span class="kjm"><svg viewBox="4 4 74 90" aria-hidden="true"><use href="#kj-logo"/></svg></span><span>Kailany<small>Web designer · Landing pages</small></span></div>
+    </div>
+    <div class="about-body">
+      <span class="eyebrow rv">Quem faz</span>
+      <h2 class="rv" style="--d:.08s">Oi, eu sou a <em>Kailany.</em></h2>
+      <p class="rv" style="--d:.14s">Sou web designer e ajudo profissionais liberais a apresentarem seu trabalho na internet com clareza, identidade e profissionalismo.</p>
+      <p class="rv" style="--d:.2s">Para mim, uma boa página faz duas coisas: representa bem quem está por trás do negócio e facilita a decisão de quem quer contratar.</p>
+      <p class="rv" style="--d:.26s">Trabalho em etapas, com a sua aprovação em cada uma, explicações simples e atenção a cada detalhe.</p>
+      <p class="rv" style="--d:.32s"><strong>Meu compromisso é entregar uma página que faça sentido para o seu negócio, não só algo bonito para o portfólio.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DEPOIMENTOS -->
+<section class="dep">
+  <span class="orb o-gold" style="left:30%;top:20%" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="dep-head">
+      <div class="stack">
+        <span class="eyebrow rv">Depoimentos</span>
+        <h2 class="rv" style="--d:.08s">A experiência de quem <em>já me contratou.</em></h2>
+      </div>
+    </div>
+    <div class="slider rv" id="slider" tabindex="0" aria-label="Depoimentos de clientes">
+      <figure class="slide"><div class="im"><img src="img/dep6.jpg" alt="Depoimento: Ficou tão elegante que eu me apaixonei de cara. Ficou bem chique. Mas você fez bem melhor. Eu amei."></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep3.jpg" alt="Depoimento: Nossa, eu amei! Ficou perfeito. Está tudo impecável! Amei as fotos e o fundo vintage! Seu trabalho é lindo demais!"></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep7.jpg" alt="Depoimento: Ficou tudo lindo Ka! Muito obrigada por todo o cuidado e atenção em cada detalhe, e por fazer muito além do que havíamos combinado!"></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep1.jpg" alt="Depoimento: Agradeço a atenção e o cuidado com os detalhes. Seu trabalho é ótimo, o site ficou lindo. Vou recomendar seu trabalho."></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep4.jpg" alt="Depoimento: Que top! Obrigada pela paciência me explicando tudo, você também é uma excelente profissional. Amei tudo."></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep2.jpg" alt="Depoimento: Ficou demais. Amei muito. Obrigada pelo teu esforço! Ficou bem no estilo que eu queria."></div></figure>
+      <figure class="slide"><div class="im"><img src="img/dep5.jpg" alt="Depoimento: Adorei! Ficou exatamente como eu imaginei. Muito obrigada."></div></figure>
+    </div>
+    <div class="slider-nav rv">
+      <span class="count" id="count">01 / 07</span>
+      <span class="track"><i id="thumb"></i></span>
+      <div class="arrows">
+        <button type="button" id="prev" aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="next" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 FAQ -->
+<section class="faq" id="duvidas">
+  <span class="orb o-green" style="left:-8%;bottom:0" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="stack" style="align-self:start">
+      <span class="eyebrow rv">Perguntas frequentes</span>
+      <h2 class="rv" style="--d:.08s">Antes de pedir <em>sua proposta</em></h2>
+      <p class="muted rv" style="--d:.16s">Se a sua pergunta não estiver aqui, me chama no WhatsApp. Eu respondo tudo com calma.</p>
+      <a class="btn js-wa rv" style="--d:.22s" href="#contato"><span>Tirar uma dúvida</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div class="faq-list rv" style="--d:.1s">
+      <details><summary>Quanto custa criar uma landing page?<span class="pm" aria-hidden="true"></span></summary><p>O investimento depende das necessidades do seu projeto, das funcionalidades e do que será desenvolvido. Na primeira conversa, entendo o que você precisa e preparo uma proposta personalizada, com entregas e valores definidos.</p></details>
+      <details><summary>Por que contratar uma landing page se já tenho Instagram?<span class="pm" aria-hidden="true"></span></summary><p>Porque os dois cumprem funções diferentes. O Instagram é um canal para publicar conteúdos, interagir e atrair interessados. A landing page apresenta uma oferta específica de forma organizada, reúne informações importantes e facilita o próximo passo de quem deseja contratar.</p></details>
+      <details><summary>Posso criar minha própria página usando inteligência artificial?<span class="pm" aria-hidden="true"></span></summary><p>Sim. Existem ferramentas que geram páginas automaticamente. A diferença está no trabalho de entender seu negócio, definir o que comunicar, organizar os argumentos e desenvolver uma experiência adequada ao seu público. A inteligência artificial pode ajudar na execução, mas não substitui essas decisões.</p></details>
+      <details><summary>Preciso ter os textos e as fotos prontos?<span class="pm" aria-hidden="true"></span></summary><p>Não. Os textos fazem parte do meu serviço. Para as imagens, podemos trabalhar com seu material atual, fotografias profissionais ou imagens produzidas com inteligência artificial, conforme a necessidade do projeto.</p></details>
+      <details><summary>Como funcionam domínio e hospedagem?<span class="pm" aria-hidden="true"></span></summary><p>O domínio é o endereço da sua página na internet. A hospedagem é o serviço que mantém a página disponível. Eu explico as opções, ajudo na configuração e informo os custos envolvidos antes da contratação.</p></details>
+      <details><summary>Quanto tempo leva para minha página ficar pronta?<span class="pm" aria-hidden="true"></span></summary><p>O prazo depende da complexidade do projeto e é combinado na proposta, considerando também as etapas de envio de informações e aprovação.</p></details>
+      <details><summary>Posso pedir alterações durante o projeto?<span class="pm" aria-hidden="true"></span></summary><p>Sim. O desenvolvimento inclui etapas de aprovação. A quantidade de revisões e as condições para ajustes ficam definidas na proposta, para que você saiba exatamente o que está contratando.</p></details>
+      <details><summary>E depois da publicação?<span class="pm" aria-hidden="true"></span></summary><p>Você conta com suporte pós-entrega conforme as condições estabelecidas no projeto. Também podemos conversar sobre manutenção e novas funcionalidades, caso precise.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CTA FINAL -->
+<section class="final" id="contato">
+  <span class="orb o-gold" style="left:8%;top:18%" aria-hidden="true"></span><span class="orb o-rose sm" style="right:4%;bottom:6%" aria-hidden="true"></span>
+  <div class="final-ghost" aria-hidden="true"><img src="img/sofa.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="mosaic">
+      <div class="m m1 rv-img"><img src="img/hero.jpg" alt="Kailany trabalhando no notebook"></div>
+      <div class="m m2 rv-img" style="--d:.15s"><img src="img/cafe.jpg" alt="Kailany respondendo mensagens no celular"></div>
+      <div class="m m3 rv-img" style="--d:.25s"><img src="img/laptop-cafe.jpg" alt="Kailany no notebook com uma xícara de café, mostrando a página dela na tela"></div>
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><defs><path id="c3" d="M50,50 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text textLength="254" lengthAdjust="spacing"><textPath href="#c3">Kailany Janke · Landing pages · Web design ·</textPath></text></svg>
+        <span class="core"><span class="kjm"><svg viewBox="4 4 74 90" aria-hidden="true"><use href="#kj-logo"/></svg></span></span>
+      </div>
+    </div>
+    <div class="final-txt">
+      <span class="pill up rv"><i></i>Próximo passo</span>
+      <h2 class="caps rv" style="--d:.08s">Vamos <span class="hl">conversar?</span></h2>
+      <span class="rule rv-line"></span>
+      <p class="big rv" style="--d:.14s">Você já se dedica a oferecer um bom serviço. Agora precisa apresentá-lo à altura.</p>
+      <p class="rv" style="--d:.2s">Seu próximo cliente pode te conhecer por um anúncio, uma indicação ou um post. Me conte o que você faz e eu preparo uma proposta de landing page para o seu negócio.</p>
+      <a class="btn js-wa rv" style="--d:.26s" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><span class="kjm"><svg viewBox="4 4 74 90" aria-hidden="true"><use href="#kj-logo"/></svg></span><span>Kailany Janke · Web Designer</span></span>
+    <span><a href="https://www.instagram.com/kailanyjanke/" target="_blank" rel="noopener">@kailanyjanke</a> · © 2026</span>
+  </div>
+</footer>
+
+<a class="float-wa js-wa" href="#contato" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2 2.4 4.2 4.6 4.6l1-1.1 1.9.8-.3 1.7c-3.6.4-7.6-3.6-7.2-7.2l1.7-.3.8 1.9z"/></svg>
+</a>
+
+<script>
+  // Troque pelo seu número com DDI e DDD, só dígitos (ex.: 5551999998888)
+  var WHATSAPP = "5500000000000";
+  var MSG = "Oi, Kailany! Conheci seu trabalho pela página e gostaria de receber uma proposta para criar minha landing page.";
+  var url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MSG);
+  document.querySelectorAll(".js-wa").forEach(function(a){ a.href = url; a.target = "_blank"; a.rel = "noopener"; });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Revelação das seções ao rolar
+  var targets = document.querySelectorAll(".rv,.rv-img,.rv-line");
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+    targets.forEach(function(t){ io.observe(t); });
+    setTimeout(function(){ targets.forEach(function(t){ if (t.getBoundingClientRect().top < innerHeight) t.classList.add("in"); }); }, 60);
+  } else {
+    targets.forEach(function(t){ t.classList.add("in"); });
+  }
+
+  // Barra de progresso
+  var bar = document.getElementById("progress");
+  function prog(){ var h = document.documentElement; bar.style.transform = "scaleX(" + (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + ")"; }
+  addEventListener("scroll", prog, { passive: true }); prog();
+
+  // Brilho que segue o mouse pela página inteira
+  if (fine && !reduce) {
+    var glow = document.getElementById("glow"), tx = 0, ty = 0, x = 0, y = 0, running = false;
+    function loop(){
+      x += (tx - x) * .2; y += (ty - y) * .2;
+      glow.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+      if (Math.abs(tx - x) > .2 || Math.abs(ty - y) > .2) requestAnimationFrame(loop); else running = false;
+    }
+    addEventListener("mousemove", function(e){
+      tx = e.clientX; ty = e.clientY;
+      if (!glow.classList.contains("on")) { x = tx; y = ty; glow.classList.add("on"); }
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }, { passive: true });
+    document.addEventListener("mouseleave", function(){ glow.classList.remove("on"); });
+  }
+
+  // Luz nos cards do "incluso"
+  document.querySelectorAll(".incl-item").forEach(function(el){
+    el.addEventListener("mousemove", function(e){
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--x", (e.clientX - r.left) + "px");
+      el.style.setProperty("--y", (e.clientY - r.top) + "px");
+    });
+  });
+  // Carrossel de depoimentos
+  (function(){
+    var sl=document.getElementById("slider"), items=sl.querySelectorAll(".slide"), n=items.length;
+    var count=document.getElementById("count"), thumb=document.getElementById("thumb");
+    thumb.style.width=(100/n)+"%";
+    function step(){ return items[0].getBoundingClientRect().width + 20; }
+    function update(){ var i=Math.min(n-1,Math.round(sl.scrollLeft/step())); if (sl.scrollLeft + sl.clientWidth >= sl.scrollWidth - 4) i=n-1;
+      count.textContent=String(i+1).padStart(2,"0")+" / "+String(n).padStart(2,"0"); thumb.style.transform="translateX("+(i*100)+"%)"; }
+    document.getElementById("prev").addEventListener("click",function(){ sl.scrollBy({left:-step()}); });
+    document.getElementById("next").addEventListener("click",function(){ sl.scrollBy({left:step()}); });
+    sl.addEventListener("scroll",update,{passive:true}); update();
+  })();
+</script>
+</body>
+</html>
