@@ -184,11 +184,17 @@ section{padding-block:clamp(84px,11vw,140px);position:relative}
   @keyframes person{from{transform:translateX(-50%) translateY(30px);opacity:0}to{transform:translateX(-50%);opacity:1}}
   .hero-art .seal{left:0;top:18%;width:92px;height:92px}.hero-art .seal .core{inset:20px}.hero-art .seal .core .kj{font-size:1.5rem}
   .hero-bg{position:relative;inset:auto;height:min(118vw,540px);z-index:0}
-  .hero-bg img{object-position:64% center}
+  .hero-bg img{object-position:74% center}
   .hero-bg::after{background:linear-gradient(0deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 40%,transparent) 22%,transparent 45%)}
   .hero>.wrap{margin-top:-70px}
   .hero-copy{grid-column:1;padding-bottom:56px}
   .scroll-ind{display:none}
+  .hero h1{font-size:min(2.5rem,calc((100vw - 36px) / 9.75))}
+  .hero h1 .nw{white-space:nowrap}
+  .tags{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .tags span{gap:.85rem}
+  .tags span:not(:last-child)::after{content:none}
+  .tags span::before{content:"✳";color:var(--gold);font-size:.8rem}
 }
 
 
@@ -310,7 +316,13 @@ footer .kjm{font-size:38px}
 .step p{color:var(--muted)}
 .step .ok{display:inline-flex;gap:.4em;align-items:center;margin-top:.8rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);border:1px solid color-mix(in srgb,var(--rose) 45%,transparent);padding:4px 11px;border-radius:999px;font-weight:600}
 .proc-close{font-family:var(--display);font-size:1.3rem;font-weight:300;line-height:1.4;margin-block:.6rem .2rem;max-width:30ch}
-@media (max-width:880px){.proc>.wrap{grid-template-columns:1fr}.proc-side{position:static}.step{position:relative;top:auto;grid-template-columns:52px 1fr;padding:24px 22px}.step .n{font-size:2.2rem}}
+@media (max-width:880px){.proc>.wrap{grid-template-columns:1fr}.proc-side{position:static}.step{position:relative;top:auto;grid-template-columns:52px 1fr;padding:24px 22px}.step .n{font-size:2.2rem}
+  .proc h2{font-size:min(clamp(2.1rem,4.6vw,3.6rem),calc((100vw - 36px) / 10))}
+  .proc h2 .nw{white-space:nowrap}
+  .proc-facts{flex-wrap:nowrap}
+  .proc-facts li{flex:0 1 auto;min-width:0;padding-right:16px;margin-right:16px}
+  .proc-facts span{text-wrap:balance;line-height:1.4}
+}
 
 /* ---------- Sobre ---------- */
 .about{background:var(--bg-2);border-block:1px solid var(--line)}
@@ -466,7 +478,7 @@ footer a:hover{color:var(--rose)}
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Kailany Janke · Web Designer</span>
-        <h1>Dê aos seus clientes <span class="hl">todos os motivos</span> para escolher o seu negócio.</h1>
+        <h1>Dê aos seus clientes <span class="hl">todos os motivos</span> para <span class="nw">escolher o seu negócio.</span></h1>
         <p class="lead">Landing pages desenvolvidas para valorizar seus diferenciais, despertar o interesse do público certo e conduzir cada visitante até o próximo passo.</p>
         <div class="hero-cta">
           <a class="btn js-wa" href="#contato"><span>Solicitar meu orçamento</span><i class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></i></a>
@@ -597,7 +609,7 @@ footer a:hover{color:var(--rose)}
   <div class="wrap">
     <div class="proc-side">
       <span class="eyebrow rv">Como funciona</span>
-      <h2 class="rv" style="--d:.08s">Da primeira conversa à sua página publicada. <em>Você acompanha cada etapa.</em></h2>
+      <h2 class="rv" style="--d:.08s">Da primeira conversa <span class="nw">à sua página publicada.</span> <em>Você acompanha cada etapa.</em></h2>
       <p class="muted rv" style="--d:.16s">Não precisa ter todos os textos, fotos ou detalhes definidos antes de me procurar. Meu processo foi organizado para que você saiba o que está sendo feito e possa aprovar as etapas importantes.</p>
       <ul class="proc-facts rv" style="--d:.2s"><li><b>5</b><span>etapas</span></li><li><b>2</b><span>aprovações suas</span></li><li><b>1</b><span>pessoa cuidando de tudo</span></li></ul>
       <p class="proc-close rv" style="--d:.26s">Você participa das decisões, mas não precisa assumir o trabalho técnico. <em>Essa parte fica comigo.</em></p>
