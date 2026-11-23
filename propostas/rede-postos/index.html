@@ -29,6 +29,8 @@ p{margin:0}
 .lede{font-size:17px;color:var(--soft);max-width:62ch;margin-bottom:36px}
 nav{position:sticky;top:0;z-index:20;background:var(--asphalt2);color:#E9EBEE;display:flex;gap:4px 18px;align-items:center;flex-wrap:wrap;padding:12px max(5vw,16px)}
 nav b{font-family:Archivo,Arial,sans-serif;font-weight:700;margin-right:auto;white-space:nowrap}
+nav b.brand{display:flex;align-items:center;gap:14px}
+nav b.brand img{height:40px;width:auto;display:block}
 nav a{color:#C9CED4;text-decoration:none;font-size:14px;padding:6px 0;white-space:nowrap}
 nav a:hover,nav a:focus-visible{color:#fff;outline:none;text-decoration:underline}
 .hero{background:linear-gradient(90deg,rgba(24,27,32,.94) 0%,rgba(24,27,32,.82) 40%,rgba(24,27,32,.45) 100%),linear-gradient(0deg,rgba(24,27,32,.95) 0%,rgba(24,27,32,0) 45%),url(posto.jpg) 70% 30%/cover no-repeat,var(--asphalt);color:#F1F2F3}
@@ -192,7 +194,7 @@ ul.clean li{margin-bottom:8px}
 </head>
 <body>
 <nav aria-label="Seções">
-<b>Proposta · Site Via Mais</b>
+<b class="brand"><img src="logo-viamais-claro.png" alt="Via Mais Rede de Postos" width="47" height="40"><span>Proposta de site</span></b>
 <a href="#visao">Visão</a><a href="#estrutura">Estrutura</a><a href="#jornadas">Jornadas</a><a href="#painel">Painel</a><a href="#google">Google</a><a href="#prazo">Prazo</a><a href="#investimento">Investimento</a>
 </nav>
 
@@ -214,6 +216,7 @@ ul.clean li{margin-bottom:8px}
 <rect width="1240" height="300" fill="#23272D"/>
 <path d="M0 205 Q120 180 240 198 T480 190 T760 196 T1000 186 T1240 196 V250 H0Z" fill="#2A2F36"/>
 <rect y="250" width="1240" height="50" fill="#1B1E22"/><rect y="250" width="1240" height="3" fill="#3A3F46"/><path d="M0 278H1240" stroke="#F1F2F3" stroke-opacity=".45" stroke-width="3" stroke-dasharray="36 28"/>
+<rect x="300" y="122" width="10" height="128" fill="#7D848C"/><rect x="262" y="56" width="86" height="74" rx="6" fill="#F4F4F2"/><rect x="262" y="120" width="86" height="10" fill="#D7263D"/><image href="logo-viamais.png" x="270" y="62" width="70" height="56"/>
 <rect x="1040" y="134" width="170" height="116" fill="#33383F"/><rect x="1040" y="126" width="170" height="10" fill="#D7263D"/><rect x="1054" y="156" width="66" height="54" fill="#E8B86A" opacity=".85"/><rect x="1130" y="156" width="64" height="94" fill="#E8B86A" opacity=".7"/><path d="M1162 156V250" stroke="#33383F" stroke-width="3"/>
 <path d="M420 98H1000L1060 250H360Z" fill="url(#cone)"/>
 <rect x="452" y="92" width="12" height="158" fill="#7D848C"/><rect x="972" y="92" width="12" height="158" fill="#7D848C"/>
@@ -339,7 +342,7 @@ ul.clean li{margin-bottom:8px}
 <div class="gmap" aria-label="Exemplo de perfil de unidade no mapa">
 <div class="m"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><path d="M-10 110 C80 90 140 120 220 80 S350 40 410 60" stroke="#fff" stroke-width="14" fill="none"/><path d="M120 -10 L160 160" stroke="#fff" stroke-width="10"/><path d="M300 -10 L270 160" stroke="#F3F1E8" stroke-width="8"/><g transform="translate(205 62)"><path d="M0 0 C-12 -14 -12 -30 0 -34 C12 -30 12 -14 0 0Z" fill="#D7263D"/><circle cy="-22" r="5" fill="#fff"/></g></svg></div>
 <div class="c">
-<h3>Via Mais · Unidade Centro</h3>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:6px"><img src="logo-viamais.png" alt="" style="height:46px;width:auto;background:#fff;border-radius:8px;padding:4px;border:1px solid var(--rule)"><h3>Via Mais · Unidade Centro</h3></div>
 <p class="small">Posto de combustível · Av. Principal, 1200</p>
 <p style="margin-top:8px;color:#1D7A46;font-weight:600">Aberto 24 horas</p>
 <p class="small">Conveniência · Troca de óleo · Calibragem</p>
@@ -399,7 +402,7 @@ ul.clean li{margin-bottom:8px}
 
 <script>
 {
-const hdr='<div class="sb"><span>9:41</span><span>5G</span></div><div class="hd"><span class="logo">V</span><b>Via Mais</b><span class="burger"></span></div>';
+const hdr='<div class="sb"><span>9:41</span><span>5G</span></div><div class="hd"><img src="logo-viamais.png" alt="Via Mais" style="height:34px;width:auto;display:block"><b></b><span class="burger"></span></div>';
 const H=(k,h)=>k===h?' hl':'';
 const mapSvg=(on)=>'<svg viewBox="0 0 280 150" preserveAspectRatio="xMidYMid slice"><path d="M-10 100 C60 80 120 120 180 70 S260 30 300 40" stroke="#fff" stroke-width="12" fill="none"/><path d="M90 -10 L120 160" stroke="#fff" stroke-width="8"/><path d="M220 -10 L200 160" stroke="#F7F6F0" stroke-width="7"/>'+[[60,88,1],[150,96,1],[214,58,0],[245,120,0]].map(([x,y,a])=>'<g transform="translate('+x+' '+y+')" opacity="'+(on&&!a?0.3:1)+'"><path d="M0 0 C-9 -10 -9 -22 0 -25 C9 -22 9 -10 0 0Z" fill="#D7263D"/><circle cy="-16" r="3.5" fill="#fff"/></g>').join('')+'</svg>';
 const S={
