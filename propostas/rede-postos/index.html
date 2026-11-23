@@ -206,7 +206,7 @@ ul.clean li{margin-bottom:8px}
 <div class="figs">
 <div><strong>30</strong><span>unidades no mapa</span></div>
 <div><strong>1</strong><span>painel pra equipe</span></div>
-<div><strong>40</strong><span>dias úteis, no máximo</span></div>
+<div><strong>20</strong><span>dias úteis, no máximo</span></div>
 </div>
 </div>
 <div class="scene"><svg viewBox="0 0 1240 300" role="img" aria-label="Ilustração: um carro chega ao posto, o frentista abastece e o carro segue viagem">
@@ -351,10 +351,10 @@ ul.clean li{margin-bottom:8px}
 
 <section class="band" id="prazo" style="background:color-mix(in srgb,var(--rule) 35%,var(--bg))">
 <div class="wrap">
-<h2>Até 40 dias úteis, com aprovação de vocês em cada etapa</h2>
+<h2>Até 20 dias úteis, com aprovação de vocês em cada etapa</h2>
 <p class="lede">O prazo conta a partir do briefing. Cada etapa só avança com o ok de vocês, então não tem surpresa no final.</p>
 <div class="gantt" id="gantt"></div>
-<div class="axis" style="margin-top:8px"><div></div><div><span>dia 1</span><span>10</span><span>20</span><span>30</span><span>40</span></div></div>
+<div class="axis" style="margin-top:8px"><div></div><div><span>dia 1</span><span>5</span><span>10</span><span>15</span><span>20</span></div></div>
 </div>
 </section>
 
@@ -434,8 +434,8 @@ steps.addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)re
 prev.addEventListener('click',()=>{if(s>0){s--;render()}});
 next.addEventListener('click',()=>{if(s<J[j].steps.length-1){s++}else{j=(j+1)%J.length;s=0}render()});
 render();
-const G=[['Imersão','briefing e planilha',1,5,''],['Estrutura e textos','pra aprovação',6,14,''],['Design exclusivo','pra aprovação',15,26,''],['Implementação','e treinamento da equipe',27,40,''],['Perfis no Google','em paralelo, depende das verificações',6,40,'g']];
-document.getElementById('gantt').innerHTML=G.map(([a,b,x,y,c])=>'<div class="gr"><div class="lbl">'+a+'<span>'+b+'</span></div><div class="track"><div class="barx '+c+'" style="left:'+((x-1)/40*100)+'%;width:'+((y-x+1)/40*100)+'%">dias '+x+' a '+y+'</div></div></div>').join('');
+const G=[['Imersão','briefing e planilha',1,3,''],['Estrutura e textos','pra aprovação',4,7,''],['Design exclusivo','pra aprovação',8,13,''],['Implementação','e treinamento da equipe',14,20,''],['Perfis no Google','em paralelo, depende das verificações',4,20,'g']];
+document.getElementById('gantt').innerHTML=G.map(([a,b,x,y,c])=>'<div class="gr"><div class="lbl">'+a+'<span>'+b+'</span></div><div class="track"><div class="barx '+c+'" style="left:'+((x-1)/20*100)+'%;width:'+((y-x+1)/20*100)+'%">dias '+x+' a '+y+'</div></div></div>').join('');
 const C=[['Home, sobre, contato, privacidade e app',1,1],['Nossos postos, com mapa e filtros',1,1],['Página própria pra cada uma das 30 unidades',1,1],['Promoções e trabalhe conosco',1,1],['Painel pra equipe e treinamento',1,1],['Textos do site',1,1],['Perfis das 30 unidades no Google Maps',0,1],['Verificação, fotos e link pro site em cada perfil',0,1]];
 document.getElementById('cmp').innerHTML=C.map(([a,b,c])=>'<tr><td>'+a+'</td><td class="'+(b?'y':'no')+'">'+(b?'Incluso':'Não incluso')+'</td><td class="'+(c?'y':'no')+'">'+(c?'Incluso':'Não incluso')+'</td></tr>').join('');
 const secs=[...document.querySelectorAll('header.band,section.band,footer.band')];
