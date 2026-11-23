@@ -192,7 +192,7 @@ ul.clean li{margin-bottom:8px}
 </head>
 <body>
 <nav aria-label="Seções">
-<b>Proposta · Site da rede</b>
+<b>Proposta · Site Via Mais</b>
 <a href="#visao">Visão</a><a href="#estrutura">Estrutura</a><a href="#jornadas">Jornadas</a><a href="#painel">Painel</a><a href="#google">Google</a><a href="#prazo">Prazo</a><a href="#investimento">Investimento</a>
 </nav>
 
@@ -200,8 +200,8 @@ ul.clean li{margin-bottom:8px}
 <div class="wrap">
 <div class="top">
 <div>
-<h1>Site institucional da rede: do Google até o posto certo</h1>
-<p class="sum">Um site que mostra as 30 unidades e o que cada uma oferece, deixa a equipe atualizar as promoções sozinha e liga cada posto ao seu perfil no Google Maps.</p>
+<h1>Site da Via Mais: do Google até o posto certo</h1>
+<p class="sum">Um site que mostra as 30 unidades no Rio Grande do Sul, em Santa Catarina e no Paraná e o que cada uma oferece, deixa a equipe atualizar as promoções sozinha e liga cada posto ao seu perfil no Google Maps.</p>
 </div>
 <div class="figs">
 <div><strong>30</strong><span>unidades no mapa</span></div>
@@ -282,7 +282,7 @@ ul.clean li{margin-bottom:8px}
 <div class="tabs" role="tablist" id="tabs"></div>
 <ol class="steps" id="steps"></ol>
 <div class="ctls"><button class="ctl" id="prev" type="button">Voltar</button><button class="ctl go" id="next" type="button">Próximo passo</button><span class="small" id="count"></span></div>
-<p class="small" style="margin-top:18px">Marca, unidades e promoções das telas são ilustrativas. O visual final é criado com a identidade da rede.</p>
+<p class="small" style="margin-top:18px">Unidades e promoções das telas são ilustrativas. O visual final segue a identidade da Via Mais.</p>
 </div>
 <div class="phone" aria-live="polite"><div class="scr" id="scr"></div></div>
 </div>
@@ -339,7 +339,7 @@ ul.clean li{margin-bottom:8px}
 <div class="gmap" aria-label="Exemplo de perfil de unidade no mapa">
 <div class="m"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><path d="M-10 110 C80 90 140 120 220 80 S350 40 410 60" stroke="#fff" stroke-width="14" fill="none"/><path d="M120 -10 L160 160" stroke="#fff" stroke-width="10"/><path d="M300 -10 L270 160" stroke="#F3F1E8" stroke-width="8"/><g transform="translate(205 62)"><path d="M0 0 C-12 -14 -12 -30 0 -34 C12 -30 12 -14 0 0Z" fill="#D7263D"/><circle cy="-22" r="5" fill="#fff"/></g></svg></div>
 <div class="c">
-<h3>Rede · Unidade Centro</h3>
+<h3>Via Mais · Unidade Centro</h3>
 <p class="small">Posto de combustível · Av. Principal, 1200</p>
 <p style="margin-top:8px;color:#1D7A46;font-weight:600">Aberto 24 horas</p>
 <p class="small">Conveniência · Troca de óleo · Calibragem</p>
@@ -399,25 +399,25 @@ ul.clean li{margin-bottom:8px}
 
 <script>
 {
-const hdr='<div class="sb"><span>9:41</span><span>5G</span></div><div class="hd"><span class="logo">R</span><b>Sua Rede</b><span class="burger"></span></div>';
+const hdr='<div class="sb"><span>9:41</span><span>5G</span></div><div class="hd"><span class="logo">V</span><b>Via Mais</b><span class="burger"></span></div>';
 const H=(k,h)=>k===h?' hl':'';
 const mapSvg=(on)=>'<svg viewBox="0 0 280 150" preserveAspectRatio="xMidYMid slice"><path d="M-10 100 C60 80 120 120 180 70 S260 30 300 40" stroke="#fff" stroke-width="12" fill="none"/><path d="M90 -10 L120 160" stroke="#fff" stroke-width="8"/><path d="M220 -10 L200 160" stroke="#F7F6F0" stroke-width="7"/>'+[[60,88,1],[150,96,1],[214,58,0],[245,120,0]].map(([x,y,a])=>'<g transform="translate('+x+' '+y+')" opacity="'+(on&&!a?0.3:1)+'"><path d="M0 0 C-9 -10 -9 -22 0 -25 C9 -22 9 -10 0 0Z" fill="#D7263D"/><circle cy="-16" r="3.5" fill="#fff"/></g>').join('')+'</svg>';
 const S={
-home:h=>hdr+'<div class="bd"><div class="mhero"><h4>Encontre o posto mais perto de você</h4><div class="inp'+(h==='search'?'':' ph')+H('search',h)+'">'+(h==='search'?'troca de óleo':'Cidade, bairro ou serviço')+'</div><div class="chips" style="margin-top:10px"><span class="chip">Conveniência</span><span class="chip">Troca de óleo</span><span class="chip">Lava-jato</span><span class="chip">24h</span></div></div><div class="promo'+H('promo',h)+'"><span class="mut" style="color:#FFD9DE">Promoção da semana</span><strong>20% off na lavagem completa</strong><span style="font-size:12px">Até 30/11 · Centro e Jardim</span></div><div class="card row" style="align-items:center"><div><h5>Baixe o app da rede</h5><span class="mut">Ofertas e benefícios no celular</span></div><span class="btn" style="flex:0 0 auto;padding:7px 12px">Baixar</span></div><div class="foot"><span>Nossos postos</span><span>Promoções</span><span>Sobre</span><span class="'+H('jobs',h).trim()+'" style="padding:0 4px;font-weight:600;color:#16191D">Trabalhe conosco</span><span>Contato</span></div></div>',
+home:h=>hdr+'<div class="bd"><div class="mhero"><h4>Encontre o posto mais perto de você</h4><div class="inp'+(h==='search'?'':' ph')+H('search',h)+'">'+(h==='search'?'troca de óleo':'Cidade, bairro ou serviço')+'</div><div class="chips" style="margin-top:10px"><span class="chip">Conveniência</span><span class="chip">Troca de óleo</span><span class="chip">Lava-jato</span><span class="chip">24h</span></div></div><div class="promo'+H('promo',h)+'"><span class="mut" style="color:#FFD9DE">Promoção da semana</span><strong>20% off na lavagem completa</strong><span style="font-size:12px">Até 30/11 · Centro e Jardim</span></div><div class="card row" style="align-items:center"><div><h5>Baixe o App Via Mais</h5><span class="mut">Ofertas e benefícios no celular</span></div><span class="btn" style="flex:0 0 auto;padding:7px 12px">Baixar</span></div><div class="foot"><span>Nossos postos</span><span>Promoções</span><span>Sobre</span><span class="'+H('jobs',h).trim()+'" style="padding:0 4px;font-weight:600;color:#16191D">Trabalhe conosco</span><span>Contato</span></div></div>',
 postos:h=>hdr+'<div class="bd"><h5 style="font:800 18px Archivo,Arial;margin:0">Nossos postos</h5><div class="chips"><span class="chip">Todas as cidades</span><span class="chip on">Troca de óleo</span><span class="chip">24h</span><span class="chip">Lava-jato</span></div><div class="map">'+mapSvg(true)+'</div><span class="mut">2 unidades com troca de óleo</span><div class="card'+H('first',h)+'"><h5>Unidade Centro</h5><span class="mut">Av. Principal, 1200 · 1,2 km</span><div class="ok" style="margin-top:4px"><span class="dot"></span>Aberto 24 horas</div></div><div class="card"><h5>Unidade Bairro Industrial</h5><span class="mut">Rua das Indústrias, 85 · 3,8 km</span><div class="ok" style="margin-top:4px"><span class="dot"></span>Aberto até 22h</div></div></div>',
 unidade:h=>hdr+'<div class="bd"><span class="mut">Nossos postos ›</span><h5 style="font:800 20px/1.1 Archivo,Arial;margin:0">Unidade Centro</h5><span class="mut">Av. Principal, 1200 · Centro</span><div class="ok"><span class="dot"></span>Aberto agora · 24 horas</div><div class="row"><span class="btn'+H('route',h)+'">Como chegar</span><span class="btn alt">WhatsApp</span></div><div class="svc'+H('services',h)+'"><div>Conveniência</div><div>Troca de óleo</div><div>Calibragem</div><div>Lava-jato</div></div><div class="promo" style="padding:12px"><strong style="font-size:17px">20% off na lavagem completa</strong><span style="font-size:12px">Vale nesta unidade até 30/11</span></div></div>',
 rota:h=>S.unidade('')+'',
 promos:h=>hdr+'<div class="bd"><h5 style="font:800 18px Archivo,Arial;margin:0">Promoções</h5><div class="inp'+H('filter',h)+'">Unidade: Centro ▾</div><div class="promo"><strong style="font-size:18px">20% off na lavagem completa</strong><span style="font-size:12px">Até 30/11</span></div><div class="card"><h5>Café + pão de queijo por R$ 9,90</h5><span class="mut">Conveniência · a partir de 01/12</span></div><div class="card"><h5>Calibragem grátis com o app</h5><span class="mut">Todas as unidades</span></div></div>',
 promo:h=>hdr+'<div class="bd"><span class="mut">Promoções ›</span><div class="promo" style="padding:22px 16px"><strong style="font-size:26px">20% off na lavagem completa</strong></div><div class="card'+H('valid',h)+'"><h5>Válida até 30/11/2026</h5><span class="mut">Vale nas unidades Centro e Jardim</span></div><p style="margin:0">Apresente o cupom do app no caixa da lavagem.</p><span class="btn">Pegar cupom no app</span></div>',
-app:h=>hdr+'<div class="bd"><h5 style="font:800 20px/1.1 Archivo,Arial;margin:0">O app da rede</h5><div class="card"><h5>Cupons exclusivos</h5><span class="mut">Promoções que só existem no app</span></div><div class="card"><h5>Postos perto de você</h5><span class="mut">Com rota em um toque</span></div><div class="row'+H('stores',h)+'"><span class="btn" style="background:#16191D">App Store</span><span class="btn" style="background:#16191D">Google Play</span></div></div>',
-trabalhe:h=>hdr+'<div class="bd"><h5 style="font:800 20px/1.1 Archivo,Arial;margin:0">Trabalhe conosco</h5><span class="mut">Escolha a cidade e a área que combina com você.</span><div class="inp">Cidade: Sua cidade ▾</div><div class="card'+H('first',h)+'"><h5>Pista e atendimento</h5><span class="mut">Frentista, caixa</span></div><div class="card"><h5>Conveniência</h5><span class="mut">Atendente, repositor</span></div><div class="card"><h5>Troca de óleo e lava-jato</h5><span class="mut">Técnico, lavador</span></div></div>',
+app:h=>hdr+'<div class="bd"><h5 style="font:800 20px/1.1 Archivo,Arial;margin:0">App Via Mais</h5><div class="card"><h5>Cupons exclusivos</h5><span class="mut">Promoções que só existem no app</span></div><div class="card"><h5>Postos perto de você</h5><span class="mut">Com rota em um toque</span></div><div class="row'+H('stores',h)+'"><span class="btn" style="background:#16191D">App Store</span><span class="btn" style="background:#16191D">Google Play</span></div></div>',
+trabalhe:h=>hdr+'<div class="bd"><h5 style="font:800 20px/1.1 Archivo,Arial;margin:0">Trabalhe conosco</h5><span class="mut">Escolha a cidade e a área que combina com você.</span><div class="inp">Cidade: Pelotas ▾</div><div class="card'+H('first',h)+'"><h5>Pista e atendimento</h5><span class="mut">Frentista, caixa</span></div><div class="card"><h5>Conveniência</h5><span class="mut">Atendente, repositor</span></div><div class="card"><h5>Troca de óleo e lava-jato</h5><span class="mut">Técnico, lavador</span></div></div>',
 form:h=>hdr+'<div class="bd"><h5 style="font:800 18px Archivo,Arial;margin:0">Pista e atendimento</h5><div class="inp">Ana Souza</div><div class="inp">(00) 90000-0000</div><div class="inp">Unidade: Centro ▾</div><div class="inp">Anexo: curriculo-ana.pdf</div><span class="mut">✓ Autorizo o uso dos meus dados para este processo seletivo, conforme a política de privacidade.</span><span class="btn'+H('send',h)+'">Enviar currículo</span></div>',
 ok:h=>hdr+'<div class="bd" style="text-align:center"><div class="check">✓</div><h5 style="font:800 18px Archivo,Arial;margin:0">Currículo enviado</h5><span class="mut">Recebemos seu currículo para Pista e atendimento, Unidade Centro.</span></div>'
 };
 S.rota=h=>{const u=S.unidade('');return u.replace(/<\/div>$/,'<div class="sheet"><h5 style="font:700 14px Archivo,Arial;margin:0 0 8px">Abrir rota com</h5><div class="row'+H('route',h)+'"><span class="btn">Google Maps</span><span class="btn alt">Waze</span></div></div></div>')};
 const J=[
 {name:'Motorista procurando troca de óleo',steps:[['home','search','Busca o serviço','Na home, digita “troca de óleo” ou toca no atalho do serviço.'],['postos','first','Vê só quem atende','O mapa e a lista mostram as unidades com troca de óleo, da mais perto pra mais longe.'],['unidade','services','Confere a unidade','Horário, serviços, contato e as promoções que valem ali.'],['rota','route','Vai até o posto','Um toque abre a rota no Google Maps ou no Waze.']]},
-{name:'Cliente vendo uma promoção',steps:[['home','promo','Vê a promoção da semana','Destaque na home, trocado pela equipe no painel.'],['promos','filter','Filtra pela unidade dele','Aparecem só as ofertas que valem no posto que ele usa.'],['promo','valid','Confere validade e onde vale','Data e unidades ficam claras, sem dúvida no caixa.'],['app','stores','Baixa o app','A promoção leva direto pro app da rede.']]},
+{name:'Cliente vendo uma promoção',steps:[['home','promo','Vê a promoção da semana','Destaque na home, trocado pela equipe no painel.'],['promos','filter','Filtra pela unidade dele','Aparecem só as ofertas que valem no posto que ele usa.'],['promo','valid','Confere validade e onde vale','Data e unidades ficam claras, sem dúvida no caixa.'],['app','stores','Baixa o app','A promoção leva direto pro App Via Mais.']]},
 {name:'Pessoa procurando emprego',steps:[['home','jobs','Acha o Trabalhe conosco','Link fixo no menu e no rodapé de todas as páginas.'],['trabalhe','first','Escolhe cidade e área','As áreas ficam separadas, pra o currículo chegar no lugar certo.'],['form','send','Envia o currículo','Formulário curto, com a unidade escolhida e o aceite da LGPD.'],['ok','','Pronto','O RH recebe o currículo já com a unidade e a área.']]}
 ];
 let j=0,s=0;
