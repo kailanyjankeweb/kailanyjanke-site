@@ -171,6 +171,11 @@ ul.clean li{margin-bottom:8px}
 .opt p{color:var(--soft)}
 .opt.best p{color:#C9CED4}
 .scroll{overflow-x:auto}
+.bonus{background:color-mix(in srgb,var(--red) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--red) 30%,var(--rule));border-radius:14px;padding:24px 26px;margin-bottom:28px}
+.bonus h3{margin-bottom:2px}
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:16px}
+.bgrid b{display:block;font-family:Archivo,Arial,sans-serif;font-size:17px;margin-bottom:4px}
+.bgrid span{font-size:15px;color:var(--soft)}
 .cmp{width:100%;border-collapse:collapse;min-width:520px}
 .cmp th,.cmp td{padding:12px 14px 12px 0;border-bottom:1px solid var(--rule);text-align:left;font-size:15px}
 .cmp th{font-size:14px;color:var(--soft);font-weight:600;border-bottom:2px solid var(--ink)}
@@ -188,7 +193,7 @@ ul.clean li{margin-bottom:8px}
 .end a{color:#fff}
 .contact{display:flex;flex-wrap:wrap;gap:8px 28px;border-top:1px solid #4A5058;padding-top:20px;font-size:15px;color:#C9CED4}
 @media(max-width:900px){.journeys,.admin,.duo{grid-template-columns:minmax(0,1fr)}.phone{position:relative;top:0}.hero .top{grid-template-columns:minmax(0,1fr)}.branches{grid-template-columns:repeat(2,minmax(0,1fr))}.branch::before{display:none}}
-@media(max-width:600px){nav a{display:none}.stops{grid-template-columns:minmax(0,1fr);margin-top:20px;gap:14px}.price,.terms,.next{grid-template-columns:minmax(0,1fr)}.branches{grid-template-columns:minmax(0,1fr)}.gr,.axis{grid-template-columns:minmax(0,1fr);gap:4px}.axis div:first-child{display:none}.need td:first-child{width:40%}.desk .in{grid-template-columns:minmax(0,1fr)}.side{display:none}.phone{width:300px;height:600px}}
+@media(max-width:600px){.bgrid{grid-template-columns:minmax(0,1fr)}nav a{display:none}.stops{grid-template-columns:minmax(0,1fr);margin-top:20px;gap:14px}.price,.terms,.next{grid-template-columns:minmax(0,1fr)}.branches{grid-template-columns:minmax(0,1fr)}.gr,.axis{grid-template-columns:minmax(0,1fr);gap:4px}.axis div:first-child{display:none}.need td:first-child{width:40%}.desk .in{grid-template-columns:minmax(0,1fr)}.side{display:none}.phone{width:300px;height:600px}}
 @media(prefers-reduced-motion:reduce){.hl,.mv,.arm,.wh,.fuel{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -369,6 +374,15 @@ ul.clean li{margin-bottom:8px}
 <div class="opt"><span class="tag q">Site</span><h3>Site institucional completo</h3><strong>R$ 6.900</strong><p>Todas as páginas, mapa com filtros, página de cada unidade e painel.</p></div>
 <div class="opt best"><span class="tag">Recomendado</span><h3>Site + perfis no Google</h3><strong>R$ 9.900</strong><p>Tudo do site, mais os 30 perfis organizados e ligados às páginas.</p></div>
 </div>
+<div class="bonus">
+<h3>Bônus ao fechar com a Via Mais</h3>
+<p class="small">Inclusos nos dois formatos.</p>
+<div class="bgrid">
+<div><b>Link na bio da Via Mais</b><span>Uma página com a cara da rede no lugar do Linktree, levando pro site, pro app e pro WhatsApp.</span></div>
+<div><b>Kit de lançamento</b><span>3 artes pro Instagram, entre post e stories, anunciando o site novo.</span></div>
+<div><b>Cartaz com QR code</b><span>Arte A4 pronta pra imprimir nos postos, levando pra página da unidade e pro Trabalhe conosco.</span></div>
+</div>
+</div>
 <div class="scroll">
 <table class="cmp">
 <thead><tr><th>O que entra</th><th>Site</th><th>Site + Google</th></tr></thead>
@@ -440,7 +454,7 @@ next.addEventListener('click',()=>{if(s<J[j].steps.length-1){s++}else{j=(j+1)%J.
 render();
 const G=[['Imersão','briefing e planilha',1,3,''],['Estrutura e textos','pra aprovação',4,7,''],['Design exclusivo','pra aprovação',8,13,''],['Implementação','e treinamento da equipe',14,20,''],['Perfis no Google','em paralelo, depende das verificações',4,20,'g']];
 document.getElementById('gantt').innerHTML=G.map(([a,b,x,y,c])=>'<div class="gr"><div class="lbl">'+a+'<span>'+b+'</span></div><div class="track"><div class="barx '+c+'" style="left:'+((x-1)/20*100)+'%;width:'+((y-x+1)/20*100)+'%">dias '+x+' a '+y+'</div></div></div>').join('');
-const C=[['Home, sobre, contato, privacidade e app',1,1],['Nossos postos, com mapa e filtros',1,1],['Página própria pra cada uma das 30 unidades',1,1],['Promoções e trabalhe conosco com formulário de currículo',1,1],['Painel pra equipe e treinamento',1,1],['Textos do site',1,1],['Perfis das 30 unidades no Google Maps',0,1],['Verificação, fotos e link pro site em cada perfil',0,1]];
+const C=[['Home, sobre, contato, privacidade e app',1,1],['Nossos postos, com mapa e filtros',1,1],['Página própria pra cada uma das 30 unidades',1,1],['Promoções e trabalhe conosco com formulário de currículo',1,1],['Painel pra equipe e treinamento',1,1],['Textos do site',1,1],['Perfis das 30 unidades no Google Maps',0,1],['Verificação, fotos e link pro site em cada perfil',0,1],['Bônus: link na bio, kit de lançamento e cartaz com QR code',1,1]];
 document.getElementById('cmp').innerHTML=C.map(([a,b,c])=>'<tr><td>'+a+'</td><td class="'+(b?'y':'no')+'">'+(b?'Incluso':'Não incluso')+'</td><td class="'+(c?'y':'no')+'">'+(c?'Incluso':'Não incluso')+'</td></tr>').join('');
 const secs=[...document.querySelectorAll('header.band,section.band,footer.band')];
 document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea,select'))return;if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const y=window.scrollY+80;let i=secs.findIndex(el=>el.offsetTop>y)-1;if(i<-1)i=secs.length-1;if(i<0)i=0;const t=e.key==='ArrowRight'?Math.min(i+1,secs.length-1):Math.max(i-1,0);secs[t].scrollIntoView({behavior:'smooth'});e.preventDefault()});
